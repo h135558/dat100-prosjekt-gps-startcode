@@ -5,44 +5,65 @@ import no.hvl.dat100ptc.oppgave1.GPSPoint;
 
 public class GPSData {
 
-	private GPSPoint[] gpspoints;
-	protected int antall = 0;
+    private GPSPoint[] gpspoints;
+    protected int antall = 0;
 
-	public GPSData(int antall) {
+    public GPSData(int antall) {
+        
+        gpspoints = new GPSPoint[antall];
+        this.antall = 0;
+    
+        
+        
+    }
 
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO
-	}
+    public GPSPoint[] getGPSPoints() {
+        return this.gpspoints;
+    }
+    
+    protected boolean insertGPS(GPSPoint gpspoint) {
 
-	public GPSPoint[] getGPSPoints() {
-		return this.gpspoints;
-	}
-	
-	protected boolean insertGPS(GPSPoint gpspoint) {
+        boolean inserted = false;
+        
+        if (antall < gpspoints.length) { 
+            
+            gpspoints[antall] = gpspoint;
+            antall++;
+            inserted = true;
+            
+        } else {
+            inserted =  false;
+        }
+        return inserted;
+        
+        
+        
+    
+        
 
-		boolean inserted = false;
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO 
-	
-	}
+    }
 
-	public boolean insert(String time, String latitude, String longitude, String elevation) {
+    public boolean insert(String time, String latitude, String longitude, String elevation) {
+        
+        int tidISec = GPSDataConverter.toSeconds(time);
+        
+        double lat = Double.parseDouble(latitude);
+        double lon = Double.parseDouble(longitude);
+        double elev = Double.parseDouble(elevation);
 
-		GPSPoint gpspoint;
+        GPSPoint gpspoint = new GPSPoint(tidISec, lat, lon, elev);
+        return insertGPS(gpspoint);
+        
+    }
 
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO 
-		
-	}
-
-	public void print() {
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO 
-	}
+    public void print() {
+        System.out.println("====== GPS Data - START ======");
+        for (int i = 0; i < antall; i++) {
+            System.out.println(i + 1 + " " + gpspoints[i].toString());
+        }
+        
+        
+        
+        System.out.println("====== GPS Data - SLUTT ======");
+    }
 }
