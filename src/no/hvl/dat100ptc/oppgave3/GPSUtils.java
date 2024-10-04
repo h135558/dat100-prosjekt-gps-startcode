@@ -65,7 +65,7 @@ public class GPSUtils {
 	}
 
 	public static String formatTime(int secs) {
-		return "  " + java.time.LocalTime.ofSecondOfDay(secs).toString();
+		return String.format("%" + TEXTWIDTH + "s", java.time.LocalTime.ofSecondOfDay(secs).toString());
 	}
 
 	public static String formatDouble(double d) {
