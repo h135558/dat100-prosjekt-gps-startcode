@@ -7,11 +7,6 @@ public class Main {
         point.setTime(2);
 
         System.out.println("Tidspunkt: " + point.getTime());
-        
-        
         System.out.println(point.toString());
-    
-        
     }
-
 }
