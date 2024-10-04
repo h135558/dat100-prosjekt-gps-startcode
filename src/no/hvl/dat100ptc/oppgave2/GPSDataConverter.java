@@ -7,9 +7,7 @@ public class GPSDataConverter {
 	private static int TIME_STARTINDEX = 11;
 	
 	public static int toSeconds(String timestr) {
-	    String[] tid = timestr.substring(TIME_STARTINDEX, TIME_STARTINDEX + 8).split(":");
-
-	    return Integer.parseInt(tid[0]) * 3600 + Integer.parseInt(tid[1]) * 60 + Integer.parseInt(tid[2]);
+		return java.time.LocalTime.parse(timestr.substring(TIME_STARTINDEX, TIME_STARTINDEX + 8)).toSecondOfDay();
 	}
 
 	public static GPSPoint convert(String timeStr, String latitudeStr, String longitudeStr, String elevationStr) {
