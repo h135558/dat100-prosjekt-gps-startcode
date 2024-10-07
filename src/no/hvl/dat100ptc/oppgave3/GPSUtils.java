@@ -69,7 +69,7 @@ public class GPSUtils {
 	}
 
 	public static double speed(GPSPoint gpspoint1, GPSPoint gpspoint2) {
-		return distance(gpspoint1, gpspoint2) / (gpspoint2.getTime() - gpspoint1.getTime());
+		return distance(gpspoint1, gpspoint2) / abs(gpspoint1.getTime() - gpspoint2.getTime());
 	}
 
 	public static String formatTime(int secs) {
