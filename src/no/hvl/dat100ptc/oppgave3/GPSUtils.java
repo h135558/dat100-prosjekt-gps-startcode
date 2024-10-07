@@ -47,9 +47,17 @@ public class GPSUtils {
 	}
 
 	public static double distance(GPSPoint gpspoint1, GPSPoint gpspoint2) {
-		return R * compute_c(compute_a(toRadians(gpspoint1.getLatitude()), toRadians(gpspoint2.getLatitude()),
-				toRadians(gpspoint2.getLatitude() - gpspoint1.getLatitude()),
-				toRadians(gpspoint2.getLongitude() - gpspoint1.getLongitude())));
+		// @formatter:off
+		return R *
+			   compute_c(
+				   compute_a(
+					   toRadians(gpspoint1.getLatitude()),
+					   toRadians(gpspoint2.getLatitude()),
+					   toRadians(gpspoint2.getLatitude() - gpspoint1.getLatitude()),
+					   toRadians(gpspoint2.getLongitude() - gpspoint1.getLongitude())
+				   )
+			   );
+		// @formatter:on
 	}
 
 	private static double compute_a(double phi1, double phi2, double deltaphi, double deltadelta) {
