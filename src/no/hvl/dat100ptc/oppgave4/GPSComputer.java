@@ -74,19 +74,15 @@ public class GPSComputer {
 	
 	public double maxSpeed() {
 		
-		double maxspeed = 0;
-		
-		// TODO 
-		throw new UnsupportedOperationException(TODO.method());
+		double[] speeds = speeds();
+		return GPSUtils.findMax(speeds);
 	
 	}
 
 	public double averageSpeed() {
-
-		double average = 0;
-		
-		// TODO
-		throw new UnsupportedOperationException(TODO.method());
+		double totalDistance = totalDistance();
+		int totalTime = totalTime();
+		return totalDistance / totalTime * 3.6; // * 3.6 kovertere det til Kmh
 		
 	}
 
