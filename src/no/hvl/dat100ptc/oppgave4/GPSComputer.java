@@ -44,9 +44,13 @@ public class GPSComputer {
 
 		double elevation = 0;
 
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO 
+		for (int i  = 0; i < gpspoints.length - 1; i++) {
+			double diff = gpspoints[i+1].getElevation() - gpspoints[i].getElevation();
+			if (diff > 0) {
+				elevation += diff;
+			}
+		}
+		return elevation;
 		
 	}
 
