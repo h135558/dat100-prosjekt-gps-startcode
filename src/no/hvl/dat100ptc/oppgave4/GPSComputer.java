@@ -44,7 +44,7 @@ public class GPSComputer {
 
 		double elevation = 0;
 
-		for (int i  = 0; i < gpspoints.length - 1; i++) {
+		for (int i = 0; i < gpspoints.length - 1; i++) {
 			double diff = gpspoints[i+1].getElevation() - gpspoints[i].getElevation();
 			if (diff > 0) {
 				elevation += diff;
@@ -56,9 +56,7 @@ public class GPSComputer {
 
 	public int totalTime() {
 
-		// TODO
-		throw new UnsupportedOperationException(TODO.method());
-		
+		return gpspoints[gpspoints.length - 1].getTime() - gpspoints[0].getTime(); // Tar altså differetnasen mellom siste og første punktet :)
 	}
 		
 
