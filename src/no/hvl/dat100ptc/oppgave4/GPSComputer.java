@@ -118,8 +118,12 @@ public class GPSComputer {
 
 		double totalkcal = 0;
 
-		// TODO 
-		throw new UnsupportedOperationException(TODO.method());
+		double[] speeds = speeds();
+		for (int i = 0; i < speeds.length; i++) {
+			int time = gpspoints[i+1].getTime() - gpspoints[i].getTime();
+			totalkcal += kcal(weight, time, speeds[i]);
+		}
+		return totalkcal;
 		
 	}
 	
