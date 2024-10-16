@@ -131,8 +131,15 @@ public class GPSComputer {
 	
 	public void displayStatistics() {
 
-		// TODO 
-		throw new UnsupportedOperationException(TODO.method());
+	    System.out.println("==============================================");
+	    System.out.println("Total Time     :   " + GPSUtils.formatTime(totalTime()));
+	    System.out.printf("Total distance :   %10.2f km\n", totalDistance() / 1000);
+	    System.out.printf("Total elevation:   %10.2f m\n", totalElevation());
+	    System.out.printf("Max speed      :   %10.2f km/t\n", maxSpeed() * 3.6);
+	    System.out.printf("Average speed  :   %10.2f km/t\n", averageSpeed());
+	    System.out.printf("Energy         :   %10.2f kcal\n", totalKcal(WEIGHT));
+	    System.out.println("==============================================");
+		
 		
 	}
 
